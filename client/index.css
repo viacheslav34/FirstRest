@@ -1,0 +1,29 @@
+.user__information{
+    padding: 0;
+}
+.ul__user--information{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.name{
+    margin: 0 15px 0 10px;
+}
+.regist{
+    padding: 10px 5px 0 5px;
+    margin: 0 0 0 30px;
+    height: 100px;
+    background: darkgray;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+}
+.regist__input{
+    margin: 0 0 5px 0;
+}
+.flex{
+    display: flex;
+    
+}.regist__enterspan{
+    
+}

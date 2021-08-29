@@ -3,6 +3,7 @@ let express = require('express')
 let bodyParser = require('body-parser');
 //import mongoose
 let mongoose = require('mongoose');
+const cors = require('cors');
 let app = express();
 
 //Import routes
@@ -19,6 +20,8 @@ app.use(bodyParser.json());
 const dbPath = 'mongodb://localhost/firstrest';
 const options = {useNewUrlParser: true, useUnifiedTopology: true}
 const mongo = mongoose.connect(dbPath, options);
+
+app.use(cors());
 
 mongo.then(() => {
     console.log('connected');
