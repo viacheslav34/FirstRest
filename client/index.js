@@ -14,11 +14,15 @@ const ul = document.querySelector('.ul__user--information')
 
 function liСreation(history){
   for(let key of history){
-    const newLi = document.createElement('li')
-    newLi.classList.add('user__information')
-    newLi.innerHTML = `<span class="name">${key.name}</span> <span class="phone">${key.phone}</span>`
-    ul.append(newLi)
+   newInfo(key)
   }
+}
+
+function newInfo(key){
+  const newLi = document.createElement('li')
+  newLi.classList.add('user__information')
+  newLi.innerHTML = `<span class="name">${key.name}</span> <span class="phone">${key.phone}</span>`
+  ul.append(newLi)
 }
 
 const enterSpan = document.querySelector('.regist__enterspan')
@@ -31,18 +35,12 @@ enterSpan.addEventListener('click', function(){
     const nameValue = inputName.value
     const phoneValue = inputPhone.value
 
-    fetch("http://localhost:8080/api/bio",{
-        method: "POST",
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            name:nameValue,
-            email:"ivanvolcov2000@mail.com",
-            phone:phoneValue,
-            address:"lenina 32"
-          })
+    .then(function(a){
+     return a.json()
+    }).then(function(b){
+      const name = b.data.name 
+      const phone = b.data.phone
+      newInfo({name,phone})
     })
     inputName.value = "";
     inputPhone.value = ""
